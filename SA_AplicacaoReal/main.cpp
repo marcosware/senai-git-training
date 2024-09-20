@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip> // Biblioteca para definir precisão dos decimais
 #include <locale.h> // Biblioteca para permitir localização: Acentos e cedilhas no terminal
+#include <conio.h> // Biblioteca para o executável não fechar imediatamente após a execução
 
 using namespace std;
 
@@ -77,7 +78,7 @@ float INSS, float FGTS, float descontosTotais, float salarioL) {
 	cout << "\n(-) INSS (10%)           : R$ " << fixed << setprecision(2) << INSS;
 	cout << "\nFGTS (11%)               : R$ " << fixed << setprecision(2) << FGTS;
 	cout << "\nTotal de descontos       : R$ " << fixed << setprecision(2) << descontosTotais;
-	cout << "\nSalário Líquido          : R$ " << fixed << setprecision(2) << salarioL;
+	cout << "\nSalário Líquido          : R$ " << fixed << setprecision(2) << salarioL << endl;
 }
 
 int main(int argc, char** argv) {
@@ -92,5 +93,6 @@ int main(int argc, char** argv) {
 	float descontosTotais = calcularTotalDescontos(IR, INSS);
 	float salarioL = calcularSalarioLiquido(salarioB, IR, INSS);
 	finalizacao(horasT, valorH, salarioB, IR, porcentagemIR, INSS, FGTS, descontosTotais, salarioL);
+	getch();
 	return 0;
 }
